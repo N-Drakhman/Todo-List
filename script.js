@@ -16,6 +16,7 @@ async function renderTodos() {
   todos.forEach((todo) => {
     const li = document.createElement("li");
     li.setAttribute("draggable", true);
+    li.classList.add("task");
     li.dataset.id = todo.id;
 
     const checkbox = document.createElement("input");
@@ -35,7 +36,6 @@ async function renderTodos() {
     deleteButton.classList.add("delete");
     deleteButton.addEventListener("click", () => deleteTodo(todo.id));
 
-    // span.addEventListener("dblclick", () => editNote(note, span, id));
     span.addEventListener("dblclick", () => editNote(li, span, todo.id));
 
     li.appendChild(checkbox);
@@ -45,9 +45,12 @@ async function renderTodos() {
 
     li.addEventListener("dragstart", () => {
       li.classList.add("dragging");
+      todo.classList.remove("task-hover");
     });
     li.addEventListener("dragend", () => {
       li.classList.remove("dragging");
+      todo.classList.add("task-hover");
+
       saveTodosOrder();
     });
     li.addEventListener("dragover", (e) => {
