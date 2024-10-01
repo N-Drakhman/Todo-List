@@ -1,4 +1,4 @@
-const URL = "http://localhost:3000/todos";
+const URL = "https://handsome-instinctive-boater.glitch.me/todos";
 const todoInput = document.getElementById("todo-input");
 const addTodoButton = document.getElementById("add-todo");
 const todoList = document.getElementById("todo-list");
