@@ -45,11 +45,9 @@ async function renderTodos() {
 
     li.addEventListener("dragstart", () => {
       li.classList.add("dragging");
-      todo.classList.remove("task-hover");
     });
     li.addEventListener("dragend", () => {
       li.classList.remove("dragging");
-      todo.classList.add("task-hover");
 
       saveTodosOrder();
     });
